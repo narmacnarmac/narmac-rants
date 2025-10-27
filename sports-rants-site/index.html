@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Sports Rants — Dolphins & Wizards</title>
+    <meta name="description" content="Short, sharp sports rants and analysis on the Miami Dolphins and Washington Wizards."/>
+    <meta property="og:title" content="Sports Rants — Dolphins & Wizards" />
+    <meta property="og:description" content="Short, sharp sports rants and analysis on the Miami Dolphins and Washington Wizards." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.ico">
+    <!-- Tailwind (CDN). For production harden with a proper build. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Basic prose styles */
+      .prose h1 { @apply text-3xl font-bold mb-4; }
+      .prose h2 { @apply text-2xl font-semibold mt-6 mb-3; }
+      .prose p  { @apply mb-4 leading-relaxed; }
+      .prose ul { @apply list-disc pl-6 space-y-1; }
+      .tag-btn[aria-pressed="true"] { @apply bg-black text-white; }
+    </style>
+  </head>
+  <body class="bg-neutral-50 text-neutral-900">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-200">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="#/" class="text-xl font-bold tracking-tight">Sports Rants</a>
+        <nav class="flex items-center gap-3">
+          <a href="https://x.com" target="_blank" class="text-sm underline decoration-neutral-300 hover:decoration-neutral-800">X</a>
+          <a href="mailto:you@example.com" class="text-sm underline decoration-neutral-300 hover:decoration-neutral-800">Email</a>
+          <a href="#/about" class="text-sm underline decoration-neutral-300 hover:decoration-neutral-800">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-6">
+      <!-- Controls -->
+      <section class="mb-6 grid gap-3 sm:grid-cols-3">
+        <div class="col-span-2">
+          <input id="search" type="search" placeholder="Search rants..." class="w-full border border-neutral-300 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"/>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="tag-btn border rounded-xl px-3 py-2 text-sm" data-tag="All" aria-pressed="true">All</button>
+          <button class="tag-btn border rounded-xl px-3 py-2 text-sm" data-tag="Dolphins">Dolphins</button>
+          <button class="tag-btn border rounded-xl px-3 py-2 text-sm" data-tag="Wizards">Wizards</button>
+        </div>
+      </section>
+
+      <!-- Stats strip -->
+      <section class="grid md:grid-cols-2 gap-4 mb-8" id="stats-strip">
+        <div class="rounded-2xl border border-neutral-200 p-4 bg-white">
+          <h3 class="text-sm font-semibold mb-2">Miami Dolphins — Last Game (manual)</h3>
+          <div id="dolphins-stats" class="text-sm text-neutral-700">Loading…</div>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-4 bg-white">
+          <h3 class="text-sm font-semibold mb-2">Washington Wizards — Last Game (manual)</h3>
+          <div id="wizards-stats" class="text-sm text-neutral-700">Loading…</div>
+        </div>
+      </section>
+
+      <!-- Router outlet -->
+      <section id="app"></section>
+    </main>
+
+    <footer class="border-t border-neutral-200 py-10">
+      <div class="max-w-5xl mx-auto px-4 text-sm text-neutral-600">
+        <div class="flex items-center justify-between">
+          <p>© <span id="year"></span> Sports Rants.</p>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/your-newsletter" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/your-newsletter', 'popupwindow')" class="flex gap-2">
+            <input type="email" name="email" placeholder="Your email" class="border border-neutral-300 rounded-xl px-3 py-2" />
+            <button class="border rounded-xl px-3 py-2">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional: Plausible / GA snippet placeholder -->
+    <!-- <script defer data-domain="YOURDOMAIN.com" src="https://plausible.io/js/script.js"></script> -->
+
+    <script type="module" src="js/app.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  </body>
+</html>
